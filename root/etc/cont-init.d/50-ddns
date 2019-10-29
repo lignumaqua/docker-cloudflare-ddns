@@ -9,6 +9,7 @@ DnsIpAddress=$(getDnsRecordIp $CF_ZONE_ID $CF_RECORD_ID)
 if [ "$CurrentIpAddress" != "$DnsIpAddress" ]; then
   echo "Updating CloudFlare DNS record $CF_RECORD_NAME from $DnsIpAddress to $CurrentIpAddress..."
   update=$(updateDnsRecord $CF_ZONE_ID $CF_RECORD_ID $CF_RECORD_NAME $CurrentIpAddress)
+  curl -L http://$PROXY_IP:8080/autoadd?username=$ADMIN_NAME&password=$ADMIN_PASSWORD
 
   if [ "$update" == "null" ]; then
     echo "ERROR: Failed to update CloudFlare DNS record $CF_RECORD_NAME from $DnsIpAddress to $CurrentIpAddress"
