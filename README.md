@@ -46,6 +46,9 @@ docker run \
 * `-e PROXIED` - Set to `true` to make traffic go through the CloudFlare CDN. Defaults to `false`.
 * `-e RRTYPE=A` - Set to `AAAA` to use set IPv6 records instead of IPv4 records. Defaults to `A` for IPv4 records.
 * `-e DELETE_ON_STOP` - Set to `true` to have the dns record deleted when the container is stopped. Defaults to `false`.
+* `-e PROXY_IP` - IP address of proxy server API.
+* `-e ADMIN_NAME` - Log in name for proxy server API.
+* `-e ADMIN_PASSWORD` - Log in password for proxy server API.
 
 ## Multiple Domains
 
